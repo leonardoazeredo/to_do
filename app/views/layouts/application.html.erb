@@ -7,6 +7,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <p id="notice"><%= notice %></p>
+    <p id="alert"><%= alert %></p>
+
+    <% if current_user %>
+      Logged in as <bold><%= current_user.username %></bold>! <br>
+      <%= link_to 'Log Out', :logout %>
+    <% else %>
+      <%= link_to 'Log In', :login %> or
+      <%= link_to 'Sign Up', :signup %>
+    <% end  %>
   </head>
 
   <body>

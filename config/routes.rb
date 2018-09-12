@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :sessions, only: [:new, :create, :destroy]
-  get 'log_in', to: 'sessions#new'
-  get 'log_out', to: 'sessions#destroy'
+  get 'login', to: 'sessions#new'
+  get 'logout', to: 'sessions#destroy'
+  get 'sessions', to: 'sessions#new'
 
   resources :users
-  get 'sign_up', to: 'users#new'
+  get 'signup', to: 'users#new'
 
   resources :tasks
   get 'tasks/:id/complete/:completed', to: 'tasks#complete'
